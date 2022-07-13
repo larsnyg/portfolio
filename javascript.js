@@ -1,6 +1,5 @@
 console.log("Hello!")
 
-const contentful = require("contentful");
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
   space: "pdggcpu3a4hl",
