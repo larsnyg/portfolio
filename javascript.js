@@ -10,4 +10,28 @@ const client = contentful.createClient({
 client
   .getEntry("7fZqq2gqWPDyQI0OEcgNgT")
   .then(entry => console.log(entry))
+  .then(entry => console.log(entry.getEntry.))
   .catch(err => console.log(err));
+
+  var container = document.getElementById('content')
+
+contentfulClient.getEntries({
+    content_type: project
+  })
+  .then(function(entries) {
+    container.innerHTML = renderSingleProduct(entries.items)
+  })
+
+
+  function renderSingleProduct(product) {
+    var fields = product.fields
+    console.log(fields)
+    return '<div class="product-in-list">' +
+      '<div class="product-image">' +
+      renderImage(fields.image[0], fields.slug) +
+      '</div>' +
+      '<div class="product-details">' +
+      renderProductDetails(fields) +
+      '</div>' +
+      '</div>'
+  }
